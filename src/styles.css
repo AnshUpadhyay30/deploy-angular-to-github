@@ -1,1 +1,37 @@
+/* src/styles.scss */
+
+/* Basic Reset and Box Sizing */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif; /* ✅ Updated to Inter */
+}
+
+/* Apply box-sizing to all elements for consistency */
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Prevent horizontal scroll */
+body, html {
+  overflow-x: hidden;
+}
+
+/* Header Styles */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.5s;
+  /* background-color: #fff; */ /* Optional background */
+}
+
 /* You can add global styles to this file, and also import other style files */
+/* Other global styles... */

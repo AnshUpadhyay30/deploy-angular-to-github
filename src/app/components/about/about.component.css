@@ -1,0 +1,35 @@
+.about-section {
+  position: relative;
+  background-image: url('/assets/images/founderbackground.jpeg');
+  background-size: cover;
+  background-position: center;
+  padding: 140px 40px;
+  color: white;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.about-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65); /* stronger contrast for crisp HD text */
+  z-index: 0;
+}
+
+.about-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: left;
+  font-size: 1.15rem;
+  line-height: 2.1rem;
+  letter-spacing: 0.2px;
+}
+
+.section-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 32px;
+  color: #ffffff;
+}

@@ -1,7 +1,8 @@
+import 'zone.js/node';
 import { APP_BASE_HREF } from '@angular/common';
 import { CommonEngine, isMainModule } from '@angular/ssr/node';
 import express from 'express';
-import { dirname, join, resolve } from 'node:path';
+import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import bootstrap from './main.server';
 
@@ -13,32 +14,17 @@ const app = express();
 const commonEngine = new CommonEngine();
 
 /**
- * Example Express Rest API endpoints can be defined here.
- * Uncomment and define endpoints as necessary.
- *
- * Example:
- * ```ts
- * app.get('/api/**', (req, res) => {
- *   // Handle API request
- * });
- * ```
+ * ✅ Serve static files from /browser
  */
+app.use(express.static(browserDistFolder, {
+  maxAge: '1y',
+  index: 'index.html'
+}));
 
 /**
- * Serve static files from /browser
+ * ✅ Handle all SSR requests by rendering Angular
  */
-app.get(
-  '**',
-  express.static(browserDistFolder, {
-    maxAge: '1y',
-    index: 'index.html'
-  }),
-);
-
-/**
- * Handle all other requests by rendering the Angular application.
- */
-app.get('**', (req, res, next) => {
+app.get('*', (req, res, next) => {
   const { protocol, originalUrl, baseUrl, headers } = req;
 
   commonEngine
@@ -54,8 +40,7 @@ app.get('**', (req, res, next) => {
 });
 
 /**
- * Start the server if this module is the main entry point.
- * The server listens on the port defined by the `PORT` environment variable, or defaults to 4000.
+ * ✅ Start the server
  */
 if (isMainModule(import.meta.url)) {
   const port = process.env['PORT'] || 4000;

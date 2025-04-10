@@ -1,0 +1,14 @@
+<header
+  class="custom-header"
+  [ngStyle]="{ 'background-image': 'url(assets/headerbackground.jpeg)' }"
+>
+  <div class="logo">ZILAXY</div>
+  <nav class="nav-menu">
+    <a routerLink="/" fragment="home" (click)="scrollToSection('home')">Home</a>
+    <a routerLink="/" fragment="about" (click)="scrollToSection('about')">About</a>
+    <a routerLink="/" fragment="products" (click)="scrollToSection('products')">Products</a>
+    <a routerLink="/" fragment="tech" (click)="scrollToSection('tech')">Technology</a>
+    <a routerLink="/" fragment="why-us" (click)="scrollToSection('Why Choose Us?')">Why Us?</a>
+    <a routerLink="/" fragment="contact" (click)="scrollToSection('Contact Us')">Contact</a>
+  </nav>
+</header>

@@ -1,0 +1,62 @@
+.founder-section {
+  background-size: cover;
+  background-position: center;
+  padding: 100px 20px;
+  color: #fff;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+.founder-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+  gap: 40px;
+  flex-wrap: wrap;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 50px;
+  border-radius: 20px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.65);
+}
+
+.founder-photo {
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+}
+
+.founder-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.founder-text h2 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.founder-text h3 {
+  font-size: 2rem;
+  color: #30f9c1;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.founder-text .role {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+  color: #cccccc;
+}
+
+.founder-text p {
+  font-size: 1.075rem;
+  line-height: 1.75;
+  color: #e6e6e6;
+  margin-bottom: 16px;
+}

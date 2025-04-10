@@ -1,0 +1,8 @@
+/* Add global styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    background: #0f0f1a;
+    line-height: 1.6;
+}
