@@ -3,33 +3,92 @@
   background-image: url('/assets/images/founderbackground.jpeg');
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   padding: 140px 40px;
-  color: white;
-  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #ffffff;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .about-section::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.65); /* stronger contrast for crisp HD text */
+  background: rgba(0, 0, 0, 0.6); /* HD soft dark layer */
+  backdrop-filter: blur(2px); /* Subtle glass effect */
   z-index: 0;
 }
 
 .about-content {
   position: relative;
   z-index: 1;
-  max-width: 1100px;
+  max-width: 1080px;
   margin: 0 auto;
+  padding: 0 20px;
   text-align: left;
-  font-size: 1.15rem;
-  line-height: 2.1rem;
-  letter-spacing: 0.2px;
+
+  p {
+    font-size: 1.25rem;
+    line-height: 2.2rem;
+    letter-spacing: 0.3px;
+    margin-bottom: 28px;
+    font-weight: 400;
+    color: #f2f2f2;
+
+    strong {
+      font-weight: 600;
+      color: #ffffff;
+    }
+  }
 }
 
 .section-title {
-  font-size: 2.8rem;
-  font-weight: 700;
-  margin-bottom: 32px;
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 40px;
+  letter-spacing: -0.5px;
   color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* 📱 Tablet */
+@media (max-width: 768px) {
+  .about-section {
+    padding: 100px 30px;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .about-content {
+    p {
+      font-size: 1.1rem;
+      line-height: 2rem;
+      text-align: center;
+    }
+  }
+}
+
+/* 📱 Mobile */
+@media (max-width: 480px) {
+  .about-section {
+    padding: 80px 20px;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 24px;
+  }
+
+  .about-content {
+    padding: 0;
+    p {
+      font-size: 1rem;
+      line-height: 1.8rem;
+    }
+  }
 }

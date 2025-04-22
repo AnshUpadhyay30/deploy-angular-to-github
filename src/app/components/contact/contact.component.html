@@ -1,44 +1,50 @@
-<section id="contact" class="contact-section" data-aos="fade-up" data-aos-duration="1200">
+<div class="contact-section">
   <div class="contact-container">
     <div class="contact-left">
       <h2>Contact Us</h2>
+      <p>
+        We'd love to connect. Reach out to explore partnerships, product demos, or to learn more about Zilaxy.
+      </p>
     </div>
 
     <div class="contact-right">
-      <form class="contact-form">
-        <div class="row">
-          <input type="text" placeholder="First Name" required>
-          <input type="text" placeholder="Last Name" required>
+      <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
+        
+        <!-- Form fields -->
+        <div class="form-row">
+          <input type="text" placeholder="First Name" [(ngModel)]="formData.firstName" name="firstName" required />
+          <input type="text" placeholder="Last Name" [(ngModel)]="formData.lastName" name="lastName" required />
         </div>
-        <div class="row">
-          <input type="email" placeholder="Work Email" required>
-          <input type="text" placeholder="Job Title">
+        <div class="form-row">
+          <input type="email" placeholder="Work Email" [(ngModel)]="formData.email" name="email" required />
+          <input type="text" placeholder="Job Title" [(ngModel)]="formData.jobTitle" name="jobTitle" />
         </div>
-        <div class="row">
-          <input type="text" placeholder="Company">
-          <select required>
-            <option value="">Country</option>
-            <option value="india">India</option>
-            <option value="us">United States</option>
-            <option value="uk">United Kingdom</option>
-            <option value="canada">Canada</option>
-          </select>
+        <div class="form-row">
+          <input type="text" placeholder="Company" [(ngModel)]="formData.company" name="company" />
+          <input type="text" placeholder="Country" [(ngModel)]="formData.country" name="country" />
         </div>
-        <textarea rows="4" placeholder="Message"></textarea>
-
-        <div class="checkboxes">
+        <div class="form-row full-width">
+          <textarea placeholder="Message" [(ngModel)]="formData.message" name="message"></textarea>
+        </div>
+        <div class="checkbox-group">
           <label>
-            <input type="checkbox" required />
-            I confirm, I have read and agree to Zilaxy’s Privacy Policy and consent to sharing my information.
+            <input type="checkbox" [(ngModel)]="formData.agreePolicy" name="agreePolicy" />
+            I confirm, I have read and agree...
           </label>
           <label>
-            <input type="checkbox" />
-            I would like to receive alerts and updates from Zilaxy.
+            <input type="checkbox" [(ngModel)]="formData.subscribe" name="subscribe" />
+            I would like to receive alerts...
           </label>
         </div>
 
-        <button type="submit">Submit</button>
+        <!-- Loading spinner -->
+        <div *ngIf="isLoading" class="loading-spinner">
+          <p>Submitting...</p>
+        </div>
+
+        <!-- Submit button, disabled when loading -->
+        <button type="submit" [disabled]="isLoading">Submit</button>
       </form>
     </div>
   </div>
-</section>
+</div>

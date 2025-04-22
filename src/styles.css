@@ -1,24 +1,33 @@
-/* src/styles.scss */
-
-/* Basic Reset and Box Sizing */
-body {
+/* ----------------------------------------
+   Global Reset & Typography
+---------------------------------------- */
+html, body {
   margin: 0;
   padding: 0;
+  height: 100%;
+  width: 100%;
   box-sizing: border-box;
-  font-family: 'Inter', sans-serif; /* ✅ Updated to Inter */
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;        /* Prevent horizontal scroll */
+  overflow-y: scroll;        /* Enable vertical scroll */
+  scrollbar-width: none;     /* Firefox: hide scrollbar */
+  -ms-overflow-style: none;  /* IE & Edge: hide scrollbar */
 }
 
-/* Apply box-sizing to all elements for consistency */
+body::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari: hide scrollbar */
+}
+
+/* ----------------------------------------
+   Box Sizing Consistency
+---------------------------------------- */
 *, *::before, *::after {
   box-sizing: inherit;
 }
 
-/* Prevent horizontal scroll */
-body, html {
-  overflow-x: hidden;
-}
-
-/* Header Styles */
+/* ----------------------------------------
+   Fixed Header
+---------------------------------------- */
 header {
   position: fixed;
   top: 0;
@@ -29,9 +38,35 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: 0.5s;
-  /* background-color: #fff; */ /* Optional background */
+  transition: 0.5s ease-in-out;
+  background-color: transparent; /* Optional: Set to #fff if needed */
 }
 
-/* You can add global styles to this file, and also import other style files */
-/* Other global styles... */
+/* ----------------------------------------
+   Responsive Utilities (Optional)
+---------------------------------------- */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* ----------------------------------------
+   Mobile Friendly Fixes
+---------------------------------------- */
+@media (max-width: 768px) {
+  header {
+    padding: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

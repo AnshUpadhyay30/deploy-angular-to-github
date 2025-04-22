@@ -1,10 +1,10 @@
 <section class="why-us-section">
   <div class="container">
     <h2 class="section-title">Why Choose Us?</h2>
-    
+
     <div class="features-grid">
       <div class="feature-card" *ngFor="let feature of features">
-        <div [ngClass]="feature.isGreen ? 'feature-green' : 'feature-dark'">
+        <div [ngClass]="feature.isGreen ? 'feature-box feature-green' : 'feature-box feature-dark'">
           <div class="feature-icon">
             <ng-container [ngSwitch]="feature.icon">
               <i *ngSwitchCase="'lightning-bolt'" class="fas fa-bolt"></i>
@@ -13,7 +13,6 @@
               <i *ngSwitchCase="'rocket'" class="fas fa-rocket"></i>
             </ng-container>
           </div>
-          
           <h3 class="feature-title">{{ feature.title }}</h3>
           <p class="feature-description">{{ feature.description }}</p>
         </div>

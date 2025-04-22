@@ -2,61 +2,130 @@
   background-size: cover;
   background-position: center;
   padding: 100px 20px;
-  color: #fff;
+  color: #ffffff;
   font-family: 'Inter', 'Segoe UI', sans-serif;
+  position: relative;
+  overflow: hidden;
 }
 
 .founder-content {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
   max-width: 1200px;
   margin: auto;
-  gap: 40px;
-  flex-wrap: wrap;
-  background-color: rgba(0, 0, 0, 0.4);
-  padding: 50px;
-  border-radius: 20px;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.65);
+  padding: 60px 50px;
+  background-color: rgba(0, 0, 0, 0.45);
+  border-radius: 24px;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
 }
-
 .founder-photo {
-  width: 280px;
-  height: 280px;
-  object-fit: cover;
+  width: 260px;
+  height: 260px;
   border-radius: 50%;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+  object-fit: cover;
+  border: 0px solid #ffffff; /* White ring */
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3); /* Subtle HD shadow */
+  background-color: #ffffff; /* For smooth white ring appearance */
 }
 
 .founder-text {
   flex: 1;
-  min-width: 300px;
+  min-width: 280px;
+  max-width: 620px;
 }
 
 .founder-text h2 {
-  font-size: 2.8rem;
-  font-weight: 700;
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 12px;
   color: #ffffff;
-  margin-bottom: 10px;
+  letter-spacing: -0.2px;
+  line-height: 1.25;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
 }
-
 .founder-text h3 {
-  font-size: 2rem;
+  font-size: 1.85rem;
+  font-weight: 700;
   color: #30f9c1;
-  margin-bottom: 8px;
-  font-weight: 600;
+  margin-bottom: 9px;
+  letter-spacing: -0.2px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
 }
 
-.founder-text .role {
+.founder-role {
   font-size: 1.2rem;
-  font-weight: 600;
-  margin-bottom: 18px;
+  font-weight: 500;
   color: #cccccc;
+  margin-bottom: 18px;
 }
 
 .founder-text p {
   font-size: 1.075rem;
-  line-height: 1.75;
-  color: #e6e6e6;
-  margin-bottom: 16px;
+  line-height: 1.85;
+  color: #e8e8e8;
+  margin-bottom: 18px;
+  letter-spacing: 0.2px;
+}
+
+/* Tablet Devices */
+@media (max-width: 768px) {
+  .founder-content {
+    padding: 40px 24px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .founder-photo {
+    width: 220px;
+    height: 220px;
+  }
+
+  .founder-heading {
+    font-size: 2.2rem;
+  }
+
+  .founder-name {
+    font-size: 1.75rem;
+  }
+
+  .founder-role {
+    font-size: 1.1rem;
+  }
+
+  .founder-text p {
+    font-size: 1rem;
+  }
+}
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+  .founder-section {
+    padding: 80px 16px;
+  }
+
+  .founder-content {
+    padding: 32px 20px;
+  }
+
+  .founder-heading {
+    font-size: 1.8rem;
+  }
+
+  .founder-name {
+    font-size: 1.5rem;
+  }
+
+  .founder-photo {
+    width: 160px;
+    height: 160px;
+  }
+
+  .founder-text p {
+    font-size: 0.98rem;
+    line-height: 1.7;
+  }
 }

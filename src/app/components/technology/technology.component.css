@@ -1,71 +1,101 @@
 .technology-section {
-  padding: 100px 40px;
+  padding: 90px 30px;
   background: linear-gradient(to bottom, #f9fafb, #ffffff);
   text-align: center;
   font-family: 'Poppins', sans-serif;
 }
 
 .section-title {
-  font-size: 3.2rem; /* Modern and crisp */
+  font-size: 3rem;
   font-weight: 800;
   color: #0f172a;
-  margin-bottom: 12px;
-  letter-spacing: -0.6px;
+  margin-bottom: 14px;
+  letter-spacing: -0.5px;
   line-height: 1.2;
 }
 
 .section-subtitle {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 500;
   color: #4b5563;
-  max-width: 750px;
-  margin: 0 auto 60px auto;
+  max-width: 700px;
+  margin: 0 auto 50px auto;
   line-height: 1.8;
 }
 
+/* Grid Layout */
 .tech-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 40px;
+  gap: 32px;
 }
 
+/* Tech Card */
 .tech-card {
   background-color: #ffffff;
-  padding: 2.8rem 2rem;
-  border-radius: 24px;
-  width: 320px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+  padding: 2.2rem 1.6rem;
+  border-radius: 20px;
+  width: 280px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
   border: 1px solid #e5e7eb;
-  transition: all 0.35s ease;
+  transition: all 0.3s ease;
   text-align: center;
   backdrop-filter: blur(6px);
 }
 
 .tech-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 22px 65px rgba(0, 0, 0, 0.12);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
 }
 
+/* Icon Styling */
 .tech-icon {
-  font-size: 3rem;
-  margin-bottom: 22px;
-  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.08));
+  font-size: 2.2rem;
+  margin-bottom: 18px;
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.06));
 }
 
+/* Title */
 .tech-title {
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: #1f2937;
-  margin-bottom: 14px;
-  letter-spacing: -0.3px;
+  margin-bottom: 10px;
+  letter-spacing: -0.25px;
 }
 
+/* Description */
 .tech-desc {
-  font-size: 1.08rem;
+  font-size: 1rem;
   font-weight: 400;
   color: #6b7280;
-  line-height: 1.7;
-  max-width: 270px;
+  line-height: 1.6;
+  max-width: 240px;
   margin: 0 auto;
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2.2rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.05rem;
+    margin-bottom: 40px;
+  }
+
+  .tech-icon {
+    font-size: 1.9rem;
+    margin-bottom: 14px;
+  }
+
+  .tech-title {
+    font-size: 1.15rem;
+  }
+
+  .tech-desc {
+    font-size: 0.95rem;
+  }
 }

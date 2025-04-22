@@ -2,13 +2,12 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { AppComponent } from './app/app.component';
 import { provideRouter } from '@angular/router';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import { isPlatformBrowser } from '@angular/common';
-import { PLATFORM_ID, Inject } from '@angular/core';
+import { provideHttpClient } from '@angular/common/http'; // ✅ Import added
 
-// ✅ Import AOS only on the client-side inside the component
 bootstrapApplication(AppComponent, {
   providers: [
     provideRouter([]),
-    provideAnimations()
+    provideAnimations(),
+    provideHttpClient() // ✅ Enable HTTP in standalone app
   ]
 }).catch(err => console.error(err));
