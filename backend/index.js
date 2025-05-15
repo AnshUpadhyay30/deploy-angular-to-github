@@ -1,19 +1,9 @@
-// backend/index.js
-const path = require('path');
 const express = require('express');
 const dotenv = require('dotenv');
-const connectDB = require('./config/db');
-const contactRoutes = require('./routes/contact.routes');
 const cors = require('cors');
+const contactRoutes = require('./routes/contact.routes');
 
-// ✅ Load environment variables from correct path
-dotenv.config({ path: path.resolve(__dirname, '.env') });
-
-// ✅ Confirm env variables are loaded
-console.log('🔍 MONGO_URI:', process.env.MONGO_URI);
-
-// Connect to MongoDB
-connectDB();
+dotenv.config();
 
 const app = express();
 app.use(cors());
