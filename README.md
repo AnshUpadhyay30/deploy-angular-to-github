@@ -1,59 +1,95 @@
-# ZilaxyWebsite
+# 🚀 Zilaxy Website
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.4.
+Zilaxy is a full-stack professional business web application designed to showcase clean UI, seamless backend integration, and responsive user experience. Built using Angular for the frontend, Node.js + Express for the backend, and MySQL as the database.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🌐 Live Demo
 
-```bash
-ng serve
-```
+> Coming Soon...
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## 🛠️ Tech Stack
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+| Layer       | Technology                |
+|-------------|----------------------------|
+| Frontend    | Angular 16, Angular Material, SCSS, AOS |
+| Backend     | Node.js, Express.js        |
+| Database    | MySQL                      |
+| Styling     | Angular Material (Azure Theme), FontAwesome |
+| Dev Tools   | Concurrently, dotenv, proxy.conf.json |
 
-```bash
-ng generate component component-name
-```
+---
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 📁 Project Structure
 
-```bash
-ng generate --help
-```
+zilaxy-website/
+├── backend/               # Express backend
+│   ├── config/            # DB configuration
+│   ├── routes/            # API routes
+│   ├── controllers/       # Route logic
+│   └── .env               # Environment variables (not committed)
+│
+├── src/                   # Angular frontend
+│   ├── app/contact/       # Contact form component
+│   ├── assets/            # Images, icons, etc.
+│   └── styles.css         # Global styles
+│
+├── proxy.conf.json        # API proxy to backend
+├── package.json           # Project scripts and dependencies
+├── .gitignore             # Excludes node_modules, .env, dist/
 
-## Building
+---
 
-To build the project run:
+## ⚙️ Getting Started
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+### 1. Clone the Repository
 
 ```bash
-ng e2e
-```
+git clone https://github.com/AnshUpadhyay30/zilaxy-angular.git
+cd zilaxy-angular
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+npm install
+cd backend && npm install && cd ..
 
-## Additional Resources
+Setup MySQL Database
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+CREATE DATABASE zilaxy;
+
+USE zilaxy;
+
+CREATE TABLE contacts (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  firstName VARCHAR(255),
+  lastName VARCHAR(255),
+  email VARCHAR(255),
+  jobTitle VARCHAR(255),
+  company VARCHAR(255),
+  country VARCHAR(255),
+  message TEXT,
+  agreePolicy BOOLEAN,
+  subscribe BOOLEAN,
+  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+ 
+ Create .env in backend/
+PORT=3000
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=your_mysql_password
+DB_NAME=zilaxy
+
+. Run the Project
+
+
+npm run start:all
+
+👨‍💻 Author
+
+Ansh Upadhyay
+GitHub: @AnshUpadhyay30
+
+📄 License
+
+This project is licensed under the MIT License.
