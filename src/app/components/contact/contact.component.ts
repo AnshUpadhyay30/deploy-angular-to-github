@@ -4,21 +4,20 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { MatSnackBar, MatSnackBarConfig, MatSnackBarModule } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule],
+  imports: [CommonModule, FormsModule, HttpClientModule, MatSnackBarModule],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
-  // Define the isLoading property
-  isLoading = false;  // Added here
+  isLoading = false;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private snackBar: MatSnackBar) {}
 
-  // Define the form data model
   formData = {
     firstName: '',
     lastName: '',
@@ -31,40 +30,42 @@ export class ContactComponent {
     subscribe: false
   };
 
-  // Handle form submission
-  onSubmit() {
-    console.log('Form submitted');  // Log form submission
+  private openSnackBar(message: string, type: 'success' | 'error' | 'warning') {
+    const config: MatSnackBarConfig = {
+      duration: 4000,
+      panelClass: `snackbar-${type}`,
+      horizontalPosition: 'center',
+      verticalPosition: 'top'
+    };
+    this.snackBar.open(message, 'Close', config);
+  }
 
-    // Ensure the user agrees to the privacy policy before submission
+  onSubmit() {
     if (!this.formData.agreePolicy) {
-      alert('Please agree to the privacy policy before submitting.');
+      this.openSnackBar('⚠️ Please agree to the privacy policy before submitting.', 'warning');
       return;
     }
 
-    const apiUrl = 'http://localhost:5001/submit-contact';  // Replace with your Flask server URL
-
-    // Set loading to true to show the loading indicator
     this.isLoading = true;
 
-    // Send the form data to the backend
+    const apiUrl = '/api/contact'; // ✅ Proxy route for backend
+
     this.http.post(apiUrl, this.formData).pipe(
       catchError(error => {
-        console.error('Error in HTTP request:', error);
-        alert('Something went wrong. Please try again.');
-        this.isLoading = false;  // Reset loading indicator
-        return throwError(() => new Error('Something went wrong.'));
+        console.error('❌ Error submitting form:', error);
+        this.openSnackBar('❌ Submission failed. Please try again.', 'error');
+        this.isLoading = false;
+        return throwError(() => new Error('Form submission failed.'));
       })
     ).subscribe({
-      next: (response) => {
-        // On success
-        alert('Message sent successfully!');
+      next: () => {
+        this.openSnackBar('✅ Thank you! Your message was sent successfully.', 'success');
         this.resetForm();
-        this.isLoading = false;  // Reset loading indicator
+        this.isLoading = false;
       }
     });
   }
 
-  // Reset the form data
   resetForm() {
     this.formData = {
       firstName: '',
