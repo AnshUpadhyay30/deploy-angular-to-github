@@ -1,95 +1,113 @@
 # 🚀 Zilaxy Website
 
-Zilaxy is a full-stack professional business web application designed to showcase clean UI, seamless backend integration, and responsive user experience. Built using Angular for the frontend, Node.js + Express for the backend, and MySQL as the database.
+Welcome to the official repository of **Zilaxy** – a cutting-edge platform combining a professional Angular frontend with a robust Flask + MySQL backend. Built for performance, scalability, and seamless user engagement.
 
 ---
 
-## 🌐 Live Demo
+## 🌐 Live Preview
 
-> Coming Soon...
+> Coming Soon on [zilaxy.io](https://zilaxy.io)  
+> ✅ Currently runs on `localhost:4200` for frontend and `localhost:3000` for backend.
 
 ---
 
-## 🛠️ Tech Stack
+## 🧩 Tech Stack
 
-| Layer       | Technology                |
-|-------------|----------------------------|
-| Frontend    | Angular 16, Angular Material, SCSS, AOS |
-| Backend     | Node.js, Express.js        |
-| Database    | MySQL                      |
-| Styling     | Angular Material (Azure Theme), FontAwesome |
-| Dev Tools   | Concurrently, dotenv, proxy.conf.json |
+| Layer        | Technology                    |
+|-------------|-------------------------------|
+| Frontend     | [Angular 17+](https://angular.io) + SCSS |
+| Backend      | [Python Flask](https://flask.palletsprojects.com/) |
+| Database     | [MySQL 8+](https://www.mysql.com/) |
+| APIs         | RESTful JSON APIs             |
+| Styling      | Responsive + Material UI + HD Design |
+| Deployment   | GitHub + GCP Ready            |
 
 ---
 
 ## 📁 Project Structure
-
 zilaxy-website/
-├── backend/               # Express backend
-│   ├── config/            # DB configuration
-│   ├── routes/            # API routes
-│   ├── controllers/       # Route logic
-│   └── .env               # Environment variables (not committed)
-│
-├── src/                   # Angular frontend
-│   ├── app/contact/       # Contact form component
-│   ├── assets/            # Images, icons, etc.
-│   └── styles.css         # Global styles
-│
-├── proxy.conf.json        # API proxy to backend
-├── package.json           # Project scripts and dependencies
-├── .gitignore             # Excludes node_modules, .env, dist/
+├── backend/
+│   ├── app.py               # Main Flask app
+│   ├── contact_routes.py    # REST API routes
+│   ├── db.py                # MySQL DB connection
+│   ├── requirements.txt     # Python dependencies
+│   └── .env                 # Environment variables
+├── src/
+│   └── app/
+│       └── components/
+│           └── contact/     # Angular Contact Form
+├── public/
+├── dist/                    # Angular build output
+└── .gitignore
+
 
 ---
 
-## ⚙️ Getting Started
+## ⚙️ Setup Instructions
 
-### 1. Clone the Repository
+### 1. 📦 Clone the Repo
 
 ```bash
 git clone https://github.com/AnshUpadhyay30/zilaxy-angular.git
-cd zilaxy-angular
+cd zilaxy-website
 
+
+2. 🎨 Start Frontend (Angular)
 npm install
-cd backend && npm install && cd ..
+npm run start:frontend
 
-Setup MySQL Database
+3. 🧠 Start Backend (Flask)
+cd backend
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python app.py
+
+Runs on http://localhost:3000
+
+
+4. 🛢️ MySQL DB Setup
 
 CREATE DATABASE zilaxy;
-
 USE zilaxy;
 
 CREATE TABLE contacts (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  firstName VARCHAR(255),
-  lastName VARCHAR(255),
-  email VARCHAR(255),
-  jobTitle VARCHAR(255),
-  company VARCHAR(255),
-  country VARCHAR(255),
+  first_name VARCHAR(100) NOT NULL,
+  last_name VARCHAR(100) NOT NULL,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  job_title VARCHAR(100),
+  company VARCHAR(100),
+  country VARCHAR(100),
   message TEXT,
-  agreePolicy BOOLEAN,
-  subscribe BOOLEAN,
-  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  agree_policy BOOLEAN NOT NULL DEFAULT FALSE,
+  subscribe BOOLEAN NOT NULL DEFAULT FALSE,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
- 
- Create .env in backend/
-PORT=3000
+
+Update .env:
+
 DB_HOST=localhost
 DB_USER=root
-DB_PASSWORD=your_mysql_password
+DB_PASSWORD=yourpassword
 DB_NAME=zilaxy
+PORT=3000
 
-. Run the Project
+
+📬 Contact Form Features
+	•	✅ First Name, Last Name, Email, Job Title, Company, Country
+	•	✅ Message field with validation
+	•	✅ Policy and Subscription checkboxes
+	•	✅ Styled Angular form with Snackbar feedback
+	•	✅ Stores submission into MySQL via Flask API
 
 
-npm run start:all
 
 👨‍💻 Author
 
 Ansh Upadhyay
-GitHub: @AnshUpadhyay30
+GitHub • LinkedIn
 
-📄 License
+🛡 License
 
 This project is licensed under the MIT License.
