@@ -9,9 +9,10 @@ load_dotenv()
 app = Flask(__name__)
 CORS(app)
 
+# Register Blueprint
 app.register_blueprint(contact_bp)
 
 if __name__ == '__main__':
-    port = int(os.environ["PORT"])  # ✅ no fallback
-    print(f"🚀 Flask server running at http://0.0.0.0:{port}")
+    port = int(os.getenv("PORT", 3000))
+    print(f"🚀 Flask server running at http://localhost:{port}")
     app.run(host='0.0.0.0', port=port)
