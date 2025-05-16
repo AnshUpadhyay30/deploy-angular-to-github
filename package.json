@@ -4,13 +4,13 @@
   "private": true,
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start:frontend": "ng serve",
+    "start:backend": "cd backend && venv/bin/python app.py",
+    "start:all": "concurrently \"npm run start:frontend\" \"npm run start:backend\"",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:zilaxy-website": "node dist/zilaxy-website/server/server.mjs",
-    "start:backend": "node backend/index.js",
-    "start:all": "concurrently \"npm run start\" \"npm run start:backend\""
+    "serve:ssr:zilaxy-website": "node dist/zilaxy-website/server/server.mjs"
   },
   "dependencies": {
     "@angular/animations": "^19.2.3",
