@@ -13,8 +13,8 @@ CORS(app)
 # Register contact API blueprint
 app.register_blueprint(contact_bp)
 
-# Required for Render (uses PORT env variable)
+# Required for Render (uses injected PORT)
 if __name__ == '__main__':
-    port = int(os.getenv("PORT", 10000))  # fallback to 10000 if PORT isn't set
+    port = int(os.environ["PORT"])  # ❗ required by Render
     print(f"🚀 Flask server running at http://0.0.0.0:{port}")
     app.run(host='0.0.0.0', port=port)
