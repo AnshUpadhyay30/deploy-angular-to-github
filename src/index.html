@@ -1,17 +1,50 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>ZilaxyWebsite</title>
-    <base href="/">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <!-- Google Fonts for Professional Typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<head>
+  <meta charset="utf-8" />
+  <title>Zilaxy Website</title>
+  <base href="/" />
+
+  <!-- Essential Meta Tags for Responsive & Mobile-Friendly Design -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="Zilaxy - Professional healthcare web platform" />
+  <meta name="author" content="Zilaxy Team" />
+  <meta name="theme-color" content="#146cda" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+  <link rel="shortcut icon" href="favicon.ico" />
+
+  <!-- Google Fonts for Professional Typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <!-- Optional: CSS Reset or Normalize (if not handled globally) -->
+  <style>
+    /* Simple CSS reset for consistent baseline */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    html, body {
+      margin: 0; padding: 0; height: 100%;
+      font-family: 'Inter', 'Roboto', sans-serif;
+      background-color: #fff;
+      color: #222;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    body {
+      /* Make body take full height */
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+  </style>
 </head>
-  <body class="mat-typography">
-    <app-root></app-root>
-  </body>
+<body class="mat-typography">
+  <app-root></app-root>
+</body>
 </html>

@@ -1,175 +1,230 @@
+/* ==============================
+   Contact Us Section - Responsive
+   ============================== */
+
+/* ----- Main section wrapper ----- */
 .contact-section {
   background-image: url('/assets/images/herobackground.jpeg');
   background-size: cover;
   background-position: center;
-  padding: 100px 40px;
+  padding: 80px 0;
   color: white;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
+/* ----- Flex container for layout ----- */
 .contact-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  display: flex;                     /* Row by default */
+  justify-content: center;           /* Center everything horizontally */
+  align-items: flex-start;           /* Align items to top */
+  gap: 40px;                         /* Default gap between left (text) & right (form) */
   max-width: 1200px;
   margin: 0 auto;
-  flex-wrap: wrap;
-  gap: 40px;
+  padding: 0 2vw;                    /* Side padding for fluidity */
+  flex-wrap: wrap;                   /* Stack if needed on smaller screens */
+  box-sizing: border-box;
 }
 
+/* ----- Left panel: heading and info ----- */
 .contact-left {
-  flex: 1;
-  min-width: 300px;
-  max-width: 450px;
+  flex: 1 1 280px;                   /* Flexible, but min 280px wide */
+  min-width: 200px;
+  max-width: 400px;
+  margin-bottom: 32px;               /* Space below for large screens */
 }
 
 .contact-left h2 {
-  font-size: 40px;
+  font-size: 2.2rem;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
+  letter-spacing: -0.5px;
+  line-height: 1.15;
 }
 
 .contact-left p {
-  font-size: 18px;
-  line-height: 1.6;
+  font-size: 1.05rem;
+  line-height: 1.65;
   color: #f0f0f0;
 }
 
+/* ----- Right panel: form card ----- */
 .contact-right {
-  flex: 1;
-  min-width: 300px;
-  max-width: 600px;
+  flex: 1 1 330px;
+  min-width: 220px;
+  max-width: 480px;
   background-color: white;
   border-radius: 16px;
-  padding: 30px;
+  padding: 32px 24px;
+  color: #232323;
+  box-shadow: 0 8px 32px rgba(30,40,60,0.13);
+  margin-bottom: 24px;
+  box-sizing: border-box;
 }
 
+/* ----- Form styling ----- */
 form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 18px;
+  width: 100%;
 }
 
+/* ----- Each form row: flex by default, two fields side by side ----- */
 .form-row {
   display: flex;
-  gap: 20px;
+  gap: 14px;
+  width: 100%;
 }
 
-.full-width {
-  flex-direction: column;
-}
-
-input, textarea {
-  flex: 1;
-  padding: 12px 16px;
+/* ----- Input fields and textarea: adaptive sizing ----- */
+.form-row input,
+.form-row textarea {
+  flex: 1 1 0;
+  width: 100%;
+  padding: 12px 14px;
   border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-  font-family: inherit;
+  border: 1px solid #e0e0e0;
+  font-size: 1rem;
+  background: #f8fafc;
+  transition: border 0.18s;
+  outline: none;
+  color: #232323;
+  margin-bottom: 0;
+  box-sizing: border-box;
+}
+
+/* ----- Focus state ----- */
+.form-row input:focus,
+.form-row textarea:focus {
+  border-color: #146cda;
+  background: #fff;
 }
 
 textarea {
   resize: none;
-  height: 120px;
+  min-height: 90px;
+  max-height: 180px;
 }
 
+/* ----- Single column row for textarea ----- */
+.full-width {
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ----- Checkbox group ----- */
 .checkbox-group {
-  font-size: 14px;
-  color: #333;
+  font-size: 0.96rem;
+  color: #363636;
 }
 
 .checkbox-group label {
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 9px;
+  cursor: pointer;
 }
 
+/* ----- Loading state ----- */
+.loading-spinner {
+  text-align: center;
+  font-size: 1.01rem;
+  margin-bottom: 7px;
+}
+
+/* ----- Submit button ----- */
 button {
-  background-color: black;
+  background-color: #111;
   color: white;
-  padding: 14px;
+  padding: 14px 0;
   border: none;
-  font-size: 16px;
+  font-size: 1rem;
   border-radius: 10px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-weight: 600;
+  margin-top: 3px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.13);
+  transition: background-color 0.3s, box-shadow 0.3s;
+  width: 100%;
+}
+button:hover:not([disabled]) {
+  background: #146cda;
+  color: #fff;
 }
 
-button:hover {
-  background-color: #333;
-}
+/* =========================================
+   RESPONSIVE LAYOUTS: MINIMIZED GAP + MOBILE FRIENDLY
+   ========================================= */
 
-/* Responsive fix */
-@media (max-width: 768px) {
+/* --------- Tablet & below: Stack, reduce gap, scale down form --------- */
+@media (max-width: 900px) {
+  .contact-section { padding: 38px 0; }
   .contact-container {
-    flex-direction: column;
-  }
-
-  .form-row {
-    flex-direction: column;
-  }
-}
-/* Fully Responsive for all devices */
-@media (max-width: 992px) {
-  .contact-container {
-    flex-direction: column;
+    flex-direction: column;  /* Stack vertically */
+    gap: 12px;               /* Smaller gap than desktop */
     align-items: center;
+    padding: 0 1vw;
   }
-
   .contact-left,
   .contact-right {
-    max-width: 100%;
+    max-width: 99vw;
+    width: 100%;
+    margin-bottom: 0;
   }
+}
 
+/* --------- 700px & below: Ultra compact, MINIMIZED GAP between text & form --------- */
+@media (max-width: 600px) {
+  .contact-section { padding: 12px 0; }
+  .contact-container {
+    gap: 0px !important;     /* << Almost no gap between text and form */
+  }
+  .contact-left {
+    margin-bottom: 2px !important; /* << Virtually removes space below "Contact Us" */
+  }
+  .contact-left h2 { font-size: 1.12rem; }
+  .contact-left p { font-size: 0.91rem; }
+  .contact-right {
+    padding: 8px 2vw;
+    max-width: 99vw;
+    border-radius: 10px;
+  }
   .form-row {
     flex-direction: column;
+    gap: 0;
+    margin-bottom: 4px;
   }
+  .form-row input,
+  .form-row textarea { font-size: 0.97rem; padding: 9px 8px; }
+  button { font-size: 0.98rem; padding: 9px 0; margin-top: 6px; }
+}
 
-  input,
-  textarea {
-    width: 100%;
+/* --------- 400px & below: Extra tight for tiny phones --------- */
+@media (max-width: 400px) {
+  .contact-section { padding: 5px 0 4px 0; }
+  .contact-right {
+    padding: 2px 1vw;
+    border-radius: 5px;
   }
+  .contact-left h2 { font-size: 0.95rem; }
+  .contact-left p { font-size: 0.74rem; }
+  button { font-size: 0.88rem; padding: 7px 0; }
+  .form-row input, .form-row textarea { font-size: 0.9rem; padding: 7px 6px; }
 }
 
-@media (max-width: 480px) {
-  .contact-left h2 {
-    font-size: 32px;
-  }
-
-  .contact-left p {
-    font-size: 16px;
-  }
-
-  button {
-    font-size: 15px;
-    padding: 12px;
-  }
-}
-/* Snackbar base style */
-.snackbar-success,
-.snackbar-error,
-.snackbar-warning {
-  font-family: 'Lexend', sans-serif;
-  font-size: 15px;
-  font-weight: 500;
-  border-radius: 12px;
-  padding: 16px 24px;
-  text-align: center;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+/* --------- Micro screens (200-320px): All fits, text & fields shrink --------- */
+@media (max-width: 320px) {
+  .contact-right { padding: 0px 0.5vw; border-radius: 2px; }
+  .contact-left h2 { font-size: 0.7rem; }
+  .contact-left p { font-size: 0.5rem; }
+  button { font-size: 0.72rem; }
+  .form-row input, .form-row textarea { font-size: 0.7rem; padding: 5px 4px; }
 }
 
-/* Success */
-.snackbar-success {
-  background-color: #28a745;
-  color: white;
+/* ----- Always prevent horizontal scroll ----- */
+body, html {
+  overflow-x: hidden !important;
+  max-width: 100vw;
 }
 
-/* Error */
-.snackbar-error {
-  background-color: #dc3545;
-  color: white;
-}
-
-/* Warning */
-.snackbar-warning {
-  background-color: #ffc107;
-  color: #212529;
-}
+/* ===== END Contact Us Section CSS ===== */

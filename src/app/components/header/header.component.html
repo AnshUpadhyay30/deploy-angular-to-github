@@ -2,8 +2,19 @@
   class="custom-header"
   [ngStyle]="{ 'background-image': 'url(assets/headerbackground.jpeg)' }"
 >
+  <span class="header-spacer"></span>
   <div class="logo">ZILAXY</div>
-  <nav class="nav-menu">
+  <!-- Hamburger Icon -->
+  <button
+    class="menu-toggle"
+    (click)="toggleMenu()"
+    [attr.aria-label]="isMenuOpen ? 'Close navigation' : 'Open navigation'"
+  >
+    <span [class.open]="isMenuOpen"></span>
+    <span [class.open]="isMenuOpen"></span>
+    <span [class.open]="isMenuOpen"></span>
+  </button>
+  <nav class="nav-menu" [class.open]="isMenuOpen">
     <a routerLink="/" fragment="home" (click)="scrollToSection('home')">Home</a>
     <a routerLink="/" fragment="about" (click)="scrollToSection('about')">About</a>
     <a routerLink="/" fragment="products" (click)="scrollToSection('products')">Products</a>

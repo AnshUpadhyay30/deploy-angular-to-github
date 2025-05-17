@@ -12,6 +12,10 @@ html, body {
   overflow-y: scroll;        /* Enable vertical scroll */
   scrollbar-width: none;     /* Firefox: hide scrollbar */
   -ms-overflow-style: none;  /* IE & Edge: hide scrollbar */
+  -webkit-text-size-adjust: 100%; /* Prevent font scaling on mobile */
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -o-text-size-adjust: 100%;
 }
 
 body::-webkit-scrollbar {
@@ -33,7 +37,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 20px;
+  padding: 20px 32px;
   z-index: 1000;
   display: flex;
   justify-content: space-between;
@@ -61,14 +65,73 @@ button {
 }
 
 /* ----------------------------------------
-   Mobile Friendly Fixes
+   Container for content max width and padding
 ---------------------------------------- */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+/* ----------------------------------------
+   Responsive Font Sizes and Layout
+---------------------------------------- */
+
+/* Medium devices (tablets, 768px and below) */
 @media (max-width: 768px) {
   header {
-    padding: 16px;
+    padding: 16px 20px;
     flex-direction: column;
     align-items: flex-start;
   }
+
+  html {
+    font-size: 15px; /* Slightly smaller font on tablets */
+  }
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Small devices (phones, 480px and below) */
+@media (max-width: 480px) {
+  header {
+    padding: 12px 16px;
+  }
+
+  html {
+    font-size: 14px; /* Smaller font for phones */
+  }
+
+  /* Stack any nav or buttons vertically if needed */
+  header > * {
+    width: 100%;
+    margin-bottom: 12px;
+  }
+  
+  /* Buttons full width on mobile for easier tap */
+  button {
+    width: 100%;
+    padding: 12px;
+  }
+}
+
+/* Extra small devices (smartphones < 360px) */
+@media (max-width: 360px) {
+  html {
+    font-size: 13px; /* For very small phones */
+  }
+
+  header {
+    padding: 10px 12px;
+  }
+}
+
+/* ----------------------------------------
+   Misc fixes for Windows touch devices or other small screens
+---------------------------------------- */
+@media (max-width: 1024px) and (pointer: coarse) {
+  /* Increase tap targets on touch devices */
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}

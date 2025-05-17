@@ -12,6 +12,14 @@ def submit_contact():
         conn = get_db_connection()
         cursor = conn.cursor()
 
+        # ✅ Confirm connected database
+        cursor.execute("SELECT DATABASE();")
+        print("✅ Connected to DB:", cursor.fetchone())
+
+        # ✅ Show tables in the database
+        cursor.execute("SHOW TABLES;")
+        print("📋 Tables in DB:", cursor.fetchall())
+
         query = """
         INSERT INTO contacts (
             first_name, last_name, email, job_title,
